@@ -1,0 +1,9 @@
+module com.example.postofficesystem {
+    requires javafx.controls;
+    requires javafx.fxml;
+    requires javafx.graphics;
+
+
+    opens com.example.postofficesystem to javafx.fxml;
+    exports com.example.postofficesystem;
+}
