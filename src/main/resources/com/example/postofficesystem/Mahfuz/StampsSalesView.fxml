@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.postofficesystem.Mahfuz.stampsSalesViewController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="721.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postofficesystem.Mahfuz.stampsSalesViewController">
+   <children>
+      <Label layoutX="411.0" layoutY="76.0" text="Stamp Sales">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="149.0" layoutY="176.0" text="Stamp Type " />
+      <Label layoutX="159.0" layoutY="248.0" text="Quantity" />
+      <ComboBox fx:id="stampTypeComboBox" layoutX="287.0" layoutY="172.0" prefWidth="150.0" />
+      <TextField fx:id="stampQuantityTextField" layoutX="287.0" layoutY="228.0" prefHeight="58.0" prefWidth="173.0" />
+      <Button layoutX="190.0" layoutY="396.0" mnemonicParsing="false" onAction="#stampCheckStockOnAction" prefHeight="44.0" prefWidth="95.0" text="Check Stock" />
+      <Button layoutX="190.0" layoutY="476.0" mnemonicParsing="false" onAction="#sellStampOnAction" prefHeight="44.0" prefWidth="95.0" text="Sell Stamp" />
+      <Label fx:id="availableStockTextArea" layoutX="353.0" layoutY="409.0" text="Available Stock" />
+      <Label fx:id="stampTotalPriceTextArea" layoutX="353.0" layoutY="476.0" prefHeight="44.0" prefWidth="130.0" text="Total Price" />
+      <Label fx:id="successMessageTextArea" layoutX="535.0" layoutY="464.0" prefHeight="67.0" prefWidth="267.0" text="Message Out of Stock / Success" />
+      <Button layoutX="827.0" layoutY="651.0" mnemonicParsing="false" onAction="#backOnAction" text="Back" />
+   </children>
 </AnchorPane>

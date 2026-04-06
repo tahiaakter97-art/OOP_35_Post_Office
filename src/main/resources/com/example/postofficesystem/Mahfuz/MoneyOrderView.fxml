@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.postofficesystem.Mahfuz.moneyOrderViewController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="738.0" prefWidth="902.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postofficesystem.Mahfuz.moneyOrderViewController">
+   <children>
+      <Label layoutX="373.0" layoutY="60.0" text="Money Order ">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="71.0" layoutY="174.0" text="Sender Name " />
+      <Label layoutX="71.0" layoutY="235.0" text="Receiver Name" />
+      <Label layoutX="71.0" layoutY="285.0" text="Amount" />
+      <Button layoutX="171.0" layoutY="466.0" mnemonicParsing="false" onAction="#moneyOrderCalculateChargeOnAction" text="Calculate Charge " />
+      <Button layoutX="199.0" layoutY="394.0" mnemonicParsing="false" onAction="#moneyOrderSubmitOnAction" text="Submit" />
+      <Label fx:id="serviceChageTextArea" layoutX="512.0" layoutY="294.0" text="Service Charge 5%" />
+      <Label fx:id="totalPayableTextArea" layoutX="525.0" layoutY="348.0" text="Total Payable" />
+      <Label fx:id="moneyOrderIdTextArea" layoutX="518.0" layoutY="407.0" text="Money Order ID" />
+      <Label fx:id="successMessageTextArea" layoutX="515.0" layoutY="470.0" text="Success Message" />
+      <Button layoutX="784.0" layoutY="669.0" mnemonicParsing="false" onAction="#backOnAction" text="Back" />
+      <TextField fx:id="senderNameTextField" layoutX="197.0" layoutY="170.0" />
+      <TextField fx:id="receiverNameTextField" layoutX="198.0" layoutY="231.0" />
+      <TextField fx:id="moneyOrderAmoundTextField" layoutX="199.0" layoutY="281.0" />
+   </children>
 </AnchorPane>
