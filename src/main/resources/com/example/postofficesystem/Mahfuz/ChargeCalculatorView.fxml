@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.postofficesystem.Mahfuz.chargeCalculatorViewController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="722.0" prefWidth="892.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postofficesystem.Mahfuz.chargeCalculatorViewController">
+   <children>
+      <Label layoutX="345.0" layoutY="81.0" text="Charge Calculator">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="99.0" layoutY="182.0" text="Weight" />
+      <Label layoutX="89.0" layoutY="249.0" text="Distance" />
+      <Label layoutX="88.0" layoutY="318.0" text="Service Type" />
+      <Label fx:id="totalChargeTextArea" layoutX="254.0" layoutY="420.0" prefHeight="54.0" prefWidth="362.0" text="Total Charge" />
+      <TextField fx:id="weightTextField" layoutX="224.0" layoutY="178.0" prefHeight="26.0" prefWidth="372.0" />
+      <ComboBox fx:id="distanceComboBox" layoutX="224.0" layoutY="245.0" prefHeight="26.0" prefWidth="372.0" />
+      <ComboBox fx:id="serviceTypeComboBox" layoutX="230.0" layoutY="314.0" prefHeight="26.0" prefWidth="372.0" />
+      <Button layoutX="89.0" layoutY="434.0" mnemonicParsing="false" onAction="#chargeCalculateOnAction" prefHeight="26.0" prefWidth="106.0" text="Calculate" />
+   </children>
 </AnchorPane>

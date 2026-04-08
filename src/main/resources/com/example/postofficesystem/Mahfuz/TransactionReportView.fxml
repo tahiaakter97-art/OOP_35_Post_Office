@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.postofficesystem.Mahfuz.transactionReportViewController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="703.0" prefWidth="888.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postofficesystem.Mahfuz.transactionReportViewController">
+   <children>
+      <Label layoutX="336.0" layoutY="66.0" text="Transaction Report">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="transactionReportdatepicker" layoutX="329.0" layoutY="190.0" />
+      <Label layoutX="144.0" layoutY="194.0" text="Select Date" />
+      <Button layoutX="225.0" layoutY="301.0" mnemonicParsing="false" onAction="#generateReportOnAction" text="Generate Report" />
+      <TableView fx:id="transactionReportTableView" layoutX="53.0" layoutY="366.0" prefHeight="272.0" prefWidth="814.0">
+        <columns>
+          <TableColumn fx:id="trackingIdCol" prefWidth="231.20001220703125" text="Tracking ID" />
+          <TableColumn fx:id="typeCol" prefWidth="197.5999755859375" text="Type " />
+            <TableColumn fx:id="amountCOl" prefWidth="214.39996337890625" text="Amount" />
+            <TableColumn fx:id="dateCol" prefWidth="171.20001220703125" text="Date" />
+        </columns>
+      </TableView>
+      <Label fx:id="totalTransactionTextArea" layoutX="396.0" layoutY="257.0" prefHeight="65.0" prefWidth="215.0" text="Total Transaction" />
+      <Label fx:id="totalAmountTextArea" layoutX="689.0" layoutY="256.0" prefHeight="66.0" prefWidth="165.0" text="Total Amount" />
+   </children>
 </AnchorPane>
