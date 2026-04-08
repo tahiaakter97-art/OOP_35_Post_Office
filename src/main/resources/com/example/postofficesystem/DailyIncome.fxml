@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postofficesystem.DailyIncomeController">
+   <children>
+      <AnchorPane prefHeight="654.0" prefWidth="840.0">
+         <children>
+            <Button layoutX="184.0" layoutY="210.0" mnemonicParsing="false" onAction="#resetButtonOA" text="Reset" />
+            <Button layoutX="655.0" layoutY="585.0" mnemonicParsing="false" onAction="#backButtonOA" text="Back" />
+            <Button layoutX="251.0" layoutY="547.0" mnemonicParsing="false" onAction="#viewDetailsButtonOA" text="View Details" />
+            <Button layoutX="184.0" layoutY="268.0" mnemonicParsing="false" onAction="#searchButtonOA" text="Search" />
+            <Label layoutX="289.0" text="Payment Records">
+               <font>
+                  <Font name="System Bold Italic" size="30.0" />
+               </font>
+            </Label>
+            <TableView fx:id="transactionTableView" layoutX="36.0" layoutY="325.0" prefHeight="200.0" prefWidth="509.0">
+               <columns>
+                  <TableColumn fx:id="dateTC" maxWidth="1090.0" minWidth="30.0" prefWidth="96.0" text="Date" />
+                  <TableColumn fx:id="serviceTypeTC" maxWidth="1080.0" minWidth="30.0" prefWidth="103.0" text="Service Type" />
+                  <TableColumn fx:id="amountTC" maxWidth="980.0" minWidth="30.0" prefWidth="84.0" text="Amount" />
+                  <TableColumn fx:id="paymentModeTC" maxWidth="1060.0" minWidth="30.0" prefWidth="132.0" text="Payment Mode" />
+                  <TableColumn fx:id="statusTC" maxWidth="940.0" minWidth="30.0" prefWidth="93.0" text="Status" />
+               </columns>
+            </TableView>
+            <Label layoutX="301.0" layoutY="98.0" text="Payment Mode:" />
+            <Label layoutX="14.0" layoutY="60.0" text="Total Transactions:" />
+            <Label layoutX="24.0" layoutY="116.0" text="Total Income:" />
+            <Label layoutX="329.0" layoutY="60.0" text="Service Type:" />
+            <Label layoutX="312.0" layoutY="138.0" text="Select Date:" />
+            <TextField fx:id="totalTransactionsTF" layoutX="135.0" layoutY="56.0" />
+            <TextField fx:id="totalIncomeTF" layoutX="116.0" layoutY="112.0" />
+            <ComboBox fx:id="serviceTypeCB" layoutX="410.0" layoutY="56.0" prefWidth="150.0" />
+            <DatePicker fx:id="selectDateDP" layoutX="408.0" layoutY="134.0" />
+            <Button layoutX="433.0" layoutY="547.0" mnemonicParsing="false" onAction="#filterButtonOA" text="Filter" />
+            <ComboBox fx:id="paymentModeCB" layoutX="412.0" layoutY="94.0" prefWidth="150.0" />
+            <Label layoutX="315.0" layoutY="218.0" text="Search by Service:" />
+            <TextField fx:id="searchTF" layoutX="429.0" layoutY="214.0" />
+            <TextField fx:id="amountTF" layoutX="411.0" layoutY="175.0" />
+            <Label layoutX="315.0" layoutY="179.0" text="Amount:" />
+            <ComboBox fx:id="statusCB" layoutX="664.0" layoutY="56.0" prefWidth="150.0" />
+            <Label layoutX="613.0" layoutY="60.0" text="Status:" />
+            <Button layoutX="675.0" layoutY="349.0" mnemonicParsing="false" onAction="#addButtonOA" text="Add" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
