@@ -4,4 +4,5 @@ public class SearchTransactionController
 {
     @javafx.fxml.FXML
     public void initialize() {
-    }}
+    }
+}
