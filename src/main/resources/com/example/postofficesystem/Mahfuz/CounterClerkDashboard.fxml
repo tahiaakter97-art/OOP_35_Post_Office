@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="732.0" prefWidth="947.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postofficesystem.Mahfuz.counterClerkDashboardController">
+   <children>
+      <Label layoutX="350.0" layoutY="63.0" prefHeight="80.0" prefWidth="288.0" text="Counter Clerk Dashboard" textFill="#4e24c1">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="165.0" layoutY="202.0" mnemonicParsing="false" onAction="#parcelBookingOnAction" text="Parcel Booking">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="174.0" layoutY="514.0" mnemonicParsing="false" onAction="#moneyOrderOnAction" text="Money Order">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="169.0" layoutY="407.0" mnemonicParsing="false" onAction="#letterRegistrationOnAction" text="Letter Registration">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="640.0" layoutY="514.0" mnemonicParsing="false" onAction="#trackParcelOnAction" text="Track Parcel">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="631.0" layoutY="407.0" mnemonicParsing="false" onAction="#transactionReportOnAction" text="Transaction Report">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="631.0" layoutY="296.0" mnemonicParsing="false" onAction="#cancelBookingOnAction" text="Cancel Booking">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="634.0" layoutY="202.0" mnemonicParsing="false" onAction="#chargeCalculator" text="Charge Calculator">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="165.0" layoutY="309.0" mnemonicParsing="false" onAction="#stampSalesOnAction" text="Stamp Sales">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="845.0" layoutY="652.0" mnemonicParsing="false" onAction="#logOutOnAction" text="Log Out" />
+      <Line endX="21.20001220703125" endY="362.60003662109375" layoutX="466.0" layoutY="251.0" startX="21.20001220703125" startY="-62.20001220703125" />
+      <Label layoutX="83.0" layoutY="133.0" prefHeight="34.0" prefWidth="135.0" text="Welcome">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
