@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="545.0" prefWidth="824.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postofficesystem.inventoryManagementController">
+   <children>
+      <Label layoutX="211.0" layoutY="6.0" prefHeight="51.0" prefWidth="315.0" text="Inventory Management">
+         <font>
+            <Font name="System Bold Italic" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="65.0" layoutY="74.0" text="Item ID:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="308.0" layoutY="74.0" text="Item Name:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="563.0" layoutY="74.0" text="Quantity:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="65.0" layoutY="128.0" text="Price:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="301.0" layoutY="127.0" text="Min Required:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="idTF" layoutX="116.0" layoutY="70.0" />
+      <TextField fx:id="nameTF" layoutX="390.0" layoutY="72.0" />
+      <TextField fx:id="quantityTF" layoutX="634.0" layoutY="72.0" />
+      <TextField fx:id="priceTF" layoutX="110.0" layoutY="124.0" />
+      <TextField fx:id="minTF" layoutX="390.0" layoutY="124.0" />
+      <Button layoutX="221.0" layoutY="165.0" mnemonicParsing="false" onAction="#addItemButtonOA" text="Add Item" />
+      <Button layoutX="405.0" layoutY="203.0" mnemonicParsing="false" onAction="#deleteItemButtonOA" text="Delete Item" />
+      <Button layoutX="708.0" layoutY="468.0" mnemonicParsing="false" onAction="#backButtonOA" text="Back" />
+      <TableView fx:id="inventoryTV" layoutX="12.0" layoutY="252.0" prefHeight="200.0" prefWidth="665.0">
+        <columns>
+          <TableColumn fx:id="idTC" prefWidth="95.0" text="ID" />
+          <TableColumn fx:id="nameTC" prefWidth="119.0" text="Name" />
+            <TableColumn fx:id="quantityTC" prefWidth="135.0" text="Qty" />
+            <TableColumn fx:id="priceTC" prefWidth="104.0" text="Price" />
+            <TableColumn fx:id="minRequiredTC" prefWidth="111.0" text="Min" />
+            <TableColumn fx:id="statusTC" prefWidth="100.0" text="Status" />
+        </columns>
+      </TableView>
+      <Button layoutX="339.0" layoutY="165.0" mnemonicParsing="false" onAction="#updateItemButtonOA" text="Update Item" />
+      <Button layoutX="533.0" layoutY="203.0" mnemonicParsing="false" onAction="#clearItemButtonOA" text="Clear" />
+      <ComboBox fx:id="statusCB" layoutX="660.0" layoutY="135.0" prefWidth="150.0" />
+      <Label layoutX="606.0" layoutY="141.0" text="status:" />
+   </children>
+</AnchorPane>
