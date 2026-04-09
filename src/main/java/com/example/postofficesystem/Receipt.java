@@ -4,16 +4,21 @@ import java.time.LocalDate;
 
 public class Receipt {
     private int receiptId;
-    private int userId;
+    private int transactionId;
+    private String customerName;
+    private String serviceType;
     private float amount;
     private LocalDate date;
 
     public Receipt() {
     }
 
-    public Receipt(int receiptId, int userId, float amount, LocalDate date) {
+    public Receipt(int receiptId, int transactionId, String customerName,
+                   String serviceType, float amount, LocalDate date) {
         this.receiptId = receiptId;
-        this.userId = userId;
+        this.transactionId = transactionId;
+        this.customerName = customerName;
+        this.serviceType = serviceType;
         this.amount = amount;
         this.date = date;
     }
@@ -26,12 +31,12 @@ public class Receipt {
         this.receiptId = receiptId;
     }
 
-    public int getUserId() {
-        return userId;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public float getAmount() {
@@ -42,19 +47,37 @@ public class Receipt {
         this.amount = amount;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public String getServiceType() {
+        return serviceType;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public int getTransactionId() {
+        return transactionId;
+    }
+
+    public void setTransactionId(int transactionId) {
+        this.transactionId = transactionId;
     }
 
     @Override
     public String toString() {
         return "Receipt{" +
                 "receiptId=" + receiptId +
-                ", userId=" + userId +
+                ", transactionId=" + transactionId +
+                ", customerName='" + customerName + '\'' +
+                ", serviceType='" + serviceType + '\'' +
                 ", amount=" + amount +
                 ", date=" + date +
                 '}';

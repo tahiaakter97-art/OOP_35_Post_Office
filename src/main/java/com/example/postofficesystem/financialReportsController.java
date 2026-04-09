@@ -48,8 +48,7 @@ public class financialReportsController {
     }
     @javafx.fxml.FXML
     public void backButtonOA(ActionEvent actionEvent) throws IOException {
-        System.out.println("Back pressed");
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("postmasterDashboard.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AccountsDashboard.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.setScene(scene);

@@ -140,7 +140,7 @@ public class generateReportController
 
         reportList.add(report);
 
-        submissionStatusLabel.setText("Submitted ✅");
+        submissionStatusLabel.setText("Submitted");
         showAlert("Report submitted successfully!");
 
         clearFields();

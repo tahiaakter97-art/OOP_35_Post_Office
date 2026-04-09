@@ -6,7 +6,6 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="661.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postofficesystem.AccountsDashboardController">
    <children>
       <Label layoutX="265.0" layoutY="14.0" text="Accounts Officer Dashboard">
@@ -16,7 +15,7 @@
       </Label>
       <Button layoutX="148.0" layoutY="155.0" mnemonicParsing="false" onAction="#paymentRecordsButtonOA" text="Payment Records" />
       <Button layoutX="148.0" layoutY="241.0" mnemonicParsing="false" onAction="#dailyIncomeButtonOA" text="Daily Income" />
-      <Button layoutX="148.0" layoutY="331.0" mnemonicParsing="false" onAction="#generateReceiptButtonOA" text="Generate  Receipt" />
+      <Button layoutX="148.0" layoutY="331.0" mnemonicParsing="false" onAction="#generateReceiptButtonOA" text="Generate Payment Receipt" />
       <Button layoutX="148.0" layoutY="425.0" mnemonicParsing="false" onAction="#searchTransactionButtonOA" text="Search Transaction" />
       <Button layoutX="666.0" layoutY="155.0" mnemonicParsing="false" onAction="#handleRefundRequestButtonOA" text="Handle Refund Request" />
       <Button layoutX="668.0" layoutY="241.0" mnemonicParsing="false" onAction="#monthlyIncomeReportOA" text="Monthly Income Report" />

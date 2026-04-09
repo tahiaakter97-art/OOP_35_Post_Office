@@ -4,4 +4,5 @@ public class ExpenseManagementController
 {
     @javafx.fxml.FXML
     public void initialize() {
-    }}
+    }
+}

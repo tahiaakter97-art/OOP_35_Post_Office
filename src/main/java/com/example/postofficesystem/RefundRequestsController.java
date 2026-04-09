@@ -4,4 +4,5 @@ public class RefundRequestsController
 {
     @javafx.fxml.FXML
     public void initialize() {
-    }}
+    }
+}

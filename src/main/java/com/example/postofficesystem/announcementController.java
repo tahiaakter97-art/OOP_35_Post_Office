@@ -28,6 +28,7 @@ public class announcementController
 
     @javafx.fxml.FXML
     public void initialize() {
+
         announcementListView.setItems(list);
     }
 
