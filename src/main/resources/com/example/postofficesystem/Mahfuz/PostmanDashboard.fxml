@@ -6,7 +6,10 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 653528260922d9cb924cf7e48caf2d44297edc5d
 <AnchorPane prefHeight="719.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postofficesystem.Mahfuz.postmanDashboardController">
    <children>
       <Label layoutX="313.0" layoutY="64.0" text="Postman Dashboard">
@@ -15,7 +18,11 @@
          </font>
       </Label>
       <Line endX="-99.99996948242188" endY="457.60003662109375" layoutX="585.0" layoutY="188.0" startX="-100.0" />
+<<<<<<< HEAD
       <Button layoutX="186.0" layoutY="187.0" mnemonicParsing="false" text="Button" />
+=======
+      <Button layoutX="186.0" layoutY="187.0" mnemonicParsing="false" onAction="#tryOnAction" text="try" />
+>>>>>>> 653528260922d9cb924cf7e48caf2d44297edc5d
       <Button layoutX="186.0" layoutY="310.0" mnemonicParsing="false" text="Button" />
       <Button layoutX="186.0" layoutY="435.0" mnemonicParsing="false" text="Button" />
       <Button layoutX="186.0" layoutY="568.0" mnemonicParsing="false" text="Button" />
