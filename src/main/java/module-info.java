@@ -6,6 +6,6 @@ module com.example.postofficesystem {
     exports com.example.postofficesystem;
 
     opens com.example.postofficesystem.Mahfuz to javafx.fxml;
-    //exports com.example.postofficesystem.Mahfuz;  // remove this
+    exports com.example.postofficesystem.Mahfuz;  
 
 }
