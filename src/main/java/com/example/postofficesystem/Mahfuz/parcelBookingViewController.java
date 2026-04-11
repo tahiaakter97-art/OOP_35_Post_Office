@@ -1,111 +1,101 @@
 package com.example.postofficesystem.Mahfuz;
 
-//import com.example.postofficesystem.Mahfuz.Parcel;
-//import com.example.postofficesystem.Mahfuz.FileManager;
+import com.example.postofficesystem.Mahfuz.model.Parcel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Random;
 
 public class parcelBookingViewController {
 
-    @javafx.fxml.FXML
-    private TextField senderNameTextField;
-    @javafx.fxml.FXML
-    private TextField receiverNameTextField;
-    @javafx.fxml.FXML
-    private Label calculateChargeArea;
-    @javafx.fxml.FXML
-    private TextField receiverPhoneTextField;
-    @javafx.fxml.FXML
-    private ComboBox<String> parcelTypeComboBox;
-    @javafx.fxml.FXML
-    private TextField receiverAddressTextField;
-    @javafx.fxml.FXML
-    private Label trackingIdTextArea;
-    @javafx.fxml.FXML
-    private Label successMessageTextArea;
-    @javafx.fxml.FXML
-    private TextField senderPhoneTextField;
-    @javafx.fxml.FXML
-    private TextField weightTextField;
+    @javafx.fxml.FXML private TextField senderNameTextField;
+    @javafx.fxml.FXML private TextField senderPhoneTextField;
+    @javafx.fxml.FXML private TextField receiverNameTextField;
+    @javafx.fxml.FXML private TextField receiverPhoneTextField;
+    @javafx.fxml.FXML private TextField receiverAddressTextField;
+    @javafx.fxml.FXML private TextField weightTextField;
+    @javafx.fxml.FXML private ComboBox<String> parcelTypeComboBox;
+
+    @javafx.fxml.FXML private Label calculateChargeArea;
+    @javafx.fxml.FXML private Label trackingIdTextArea;
+    @javafx.fxml.FXML private Label successMessageTextArea;
 
     private double charge = 0;
 
     @javafx.fxml.FXML
     public void initialize() {
         parcelTypeComboBox.getItems().addAll("Normal", "Fragile", "Document");
-        successMessageTextArea.setText("");
-        trackingIdTextArea.setText("");
-        calculateChargeArea.setText("");
     }
 
-    // ── BACK ──────────────────────────────────────────────────────────────────
+    // BACK
     @javafx.fxml.FXML
-    public void backOnAction(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(
+    public void backOnAction(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("/com/example/postofficesystem/Mahfuz/CounterClerkDashboard.fxml")
         );
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(scene);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(loader.load()));
         stage.show();
     }
 
-    // ── CALCULATE CHARGE ──────────────────────────────────────────────────────
+    // CALCULATE CHARGE
     @javafx.fxml.FXML
-    public void calculateChargeOnAction(ActionEvent actionEvent) {
+    public void calculateChargeOnAction(ActionEvent event) {
+
         try {
-            double weight = Double.parseDouble(weightTextField.getText().trim());
+            double weight = Double.parseDouble(weightTextField.getText());
 
             if (weight <= 0) {
-                calculateChargeArea.setText("Weight must be > 0");
+                calculateChargeArea.setText("Invalid weight");
                 return;
             }
 
             String type = parcelTypeComboBox.getValue();
+
             if (type == null) {
-                calculateChargeArea.setText("Select parcel type");
+                calculateChargeArea.setText("Select type");
                 return;
             }
 
-            switch (type) {
-                case "Normal"   -> charge = weight * 50;
-                case "Fragile"  -> charge = weight * 100;
-                case "Document" -> charge = weight * 30;
+            if (type.equals("Normal")) {
+                charge = weight * 50;
+            } else if (type.equals("Fragile")) {
+                charge = weight * 100;
+            } else {
+                charge = weight * 30;
             }
 
-            calculateChargeArea.setText("৳ " + charge);
+            calculateChargeArea.setText("Charge: " + charge);
 
-        } catch (NumberFormatException e) {
-            calculateChargeArea.setText("Invalid weight");
+        } catch (Exception e) {
+            calculateChargeArea.setText("Invalid input");
         }
     }
 
-    // ── BOOK PARCEL ───────────────────────────────────────────────────────────
+    // BOOK PARCEL
     @javafx.fxml.FXML
-    public void bookParcelOnAction(ActionEvent actionEvent) {
+    public void bookParcelOnAction(ActionEvent event) {
 
-        String senderName    = senderNameTextField.getText().trim();
-        String senderPhone   = senderPhoneTextField.getText().trim();
-        String receiverName  = receiverNameTextField.getText().trim();
-        String receiverPhone = receiverPhoneTextField.getText().trim();
-        String address       = receiverAddressTextField.getText().trim();
-        String weightStr     = weightTextField.getText().trim();
-        String type          = parcelTypeComboBox.getValue();
+        String senderName = senderNameTextField.getText();
+        String senderPhone = senderPhoneTextField.getText();
+        String receiverName = receiverNameTextField.getText();
+        String receiverPhone = receiverPhoneTextField.getText();
+        String address = receiverAddressTextField.getText();
+        String weightStr = weightTextField.getText();
+        String type = parcelTypeComboBox.getValue();
 
-        // ── Validation ────────────────────────────────────────────────────────
-        if (senderName.isEmpty() || receiverName.isEmpty() ||
-                senderPhone.isEmpty() || receiverPhone.isEmpty() ||
+        // VALIDATION
+        if (senderName.isEmpty() || senderPhone.isEmpty() ||
+                receiverName.isEmpty() || receiverPhone.isEmpty() ||
                 address.isEmpty() || weightStr.isEmpty() || type == null) {
+
             successMessageTextArea.setText("Fill all fields");
             return;
         }
@@ -118,36 +108,49 @@ public class parcelBookingViewController {
         double weight;
         try {
             weight = Double.parseDouble(weightStr);
-            if (weight <= 0) {
-                successMessageTextArea.setText("Weight must be > 0");
-                return;
-            }
-        } catch (NumberFormatException e) {
+        } catch (Exception e) {
             successMessageTextArea.setText("Invalid weight");
             return;
         }
 
         if (charge == 0) {
-            successMessageTextArea.setText("Click Calculate first");
+            successMessageTextArea.setText("Calculate charge first");
             return;
         }
 
-        // ── Generate Tracking ID ──────────────────────────────────────────────
-        String trackingId = "TRK" + (10000 + new Random().nextInt(89999));
-        String date = LocalDate.now().toString();
+        // TRACKING ID
+        String trackingId = "TRK" + (10000 + new Random().nextInt(90000));
 
-        // ── Create Parcel object ──────────────────────────────────────────────
+        // MODEL OBJECT
         Parcel parcel = new Parcel(
-                trackingId, senderName, senderPhone,
-                receiverName, receiverPhone, address,
-                weight, type, charge, "Booked", "", date
+                trackingId,
+                senderName,
+                senderPhone,
+                receiverName,
+                receiverPhone,
+                address,
+                weight,
+                type,
+                charge,
+                "Booked",
+                LocalDate.now().toString()
         );
 
-        // ── Save to .bin file ─────────────────────────────────────────────────
-        //FileManager.saveParcel(parcel);
+        // SAVE TO CSV
+        saveToCSV(parcel);
 
-        // ── Show result ───────────────────────────────────────────────────────
         trackingIdTextArea.setText(trackingId);
         successMessageTextArea.setText("Booking Successful!");
+    }
+
+    // CSV FUNCTION
+    private void saveToCSV(Parcel parcel) {
+        try {
+            FileWriter fw = new FileWriter("parcels.csv", true);
+            fw.write(parcel.toCSV() + "\n");
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

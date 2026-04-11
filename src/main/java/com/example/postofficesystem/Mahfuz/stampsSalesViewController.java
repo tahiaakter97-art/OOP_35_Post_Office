@@ -1,145 +1,142 @@
 package com.example.postofficesystem.Mahfuz;
 
+import com.example.postofficesystem.Mahfuz.model.StampSale;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 public class stampsSalesViewController {
 
-    @javafx.fxml.FXML
-    private ComboBox<String> stampTypeComboBox;
+    @javafx.fxml.FXML private ComboBox<String> stampTypeComboBox;
+    @javafx.fxml.FXML private TextField stampQuantityTextField;
+    @javafx.fxml.FXML private Label availableStockTextArea;
+    @javafx.fxml.FXML private Label stampTotalPriceTextArea;
+    @javafx.fxml.FXML private Label successMessageTextArea;
 
-    @javafx.fxml.FXML
-    private Label availableStockTextArea;
+    private Map<String, Integer> stock = new HashMap<>();
 
-    @javafx.fxml.FXML
-    private Label stampTotalPriceTextArea;
-
-    @javafx.fxml.FXML
-    private Label successMessageTextArea;
-
-    @javafx.fxml.FXML
-    private TextField stampQuantityTextField;
-
-    private Map<String, Integer> stockMap;
+    private Map<String, Integer> priceMap = new HashMap<>();
 
     @javafx.fxml.FXML
     public void initialize() {
-        // Populate ComboBox
+
+        // Stamp types
         stampTypeComboBox.getItems().addAll(
-                "Stamp (Domestic) - 5৳",
-                "Stamp (International) - 15৳",
-                "Envelope (A4) - 10৳",
-                "Postcard - 20৳",
-                "Packing Box (Small) - 50৳"
+                "Stamp (Domestic) - 5",
+                "Stamp (International) - 15",
+                "Envelope (A4) - 10",
+                "Postcard - 20",
+                "Packing Box (Small) - 50"
         );
 
-        // Load stock from CSV
-        stockMap = StampStock.loadStock();
+        // Stock initialization
+        for (String item : stampTypeComboBox.getItems()) {
+            stock.put(item, 50);
+        }
 
-        // Clear labels
-        availableStockTextArea.setText("");
-        stampTotalPriceTextArea.setText("");
+        // Price map
+        priceMap.put("Stamp (Domestic) - 5", 5);
+        priceMap.put("Stamp (International) - 15", 15);
+        priceMap.put("Envelope (A4) - 10", 10);
+        priceMap.put("Postcard - 20", 20);
+        priceMap.put("Packing Box (Small) - 50", 50);
+    }
+
+    // CHECK STOCK
+    @javafx.fxml.FXML
+    public void stampCheckStockOnAction(ActionEvent event) {
+
+        String type = stampTypeComboBox.getValue();
+
+        if (type == null) {
+            successMessageTextArea.setText("Select stamp type");
+            return;
+        }
+
+        availableStockTextArea.setText("Available Stock: " + stock.get(type));
         successMessageTextArea.setText("");
     }
 
-    // event-7: Check stock availability
+    // SELL STAMP
     @javafx.fxml.FXML
-    public void stampCheckStockOnAction(ActionEvent actionEvent) {
-        String selectedType = stampTypeComboBox.getValue();
+    public void sellStampOnAction(ActionEvent event) {
 
-        if (selectedType == null) {
-            successMessageTextArea.setText("Please select a stamp type.");
-            successMessageTextArea.setStyle("-fx-text-fill: red;");
+        String type = stampTypeComboBox.getValue();
+        String qtyText = stampQuantityTextField.getText();
+
+        if (type == null || qtyText.isEmpty()) {
+            successMessageTextArea.setText("Fill all fields");
             return;
         }
 
-        int available = stockMap.getOrDefault(selectedType, 0);
-        availableStockTextArea.setText("Available Stock: " + available);
-        successMessageTextArea.setText("");
-        stampTotalPriceTextArea.setText("");
-    }
+        int qty;
 
-    // event-8 to event-10: Validate → check stock → deduct → calculate → save
-    @javafx.fxml.FXML
-    public void sellStampOnAction(ActionEvent actionEvent) {
-        String selectedType = stampTypeComboBox.getValue();
-        String quantityText = stampQuantityTextField.getText().trim();
-
-        // Validate stamp type selected
-        if (selectedType == null) {
-            successMessageTextArea.setText("Please select a stamp type.");
-            successMessageTextArea.setStyle("-fx-text-fill: red;");
-            return;
-        }
-
-        // event-6: Validate quantity > 0
-        if (quantityText.isEmpty()) {
-            successMessageTextArea.setText("Please enter a quantity.");
-            successMessageTextArea.setStyle("-fx-text-fill: red;");
-            return;
-        }
-
-        int quantity;
         try {
-            quantity = Integer.parseInt(quantityText);
-        } catch (NumberFormatException e) {
-            successMessageTextArea.setText("Quantity must be a valid number.");
-            successMessageTextArea.setStyle("-fx-text-fill: red;");
+            qty = Integer.parseInt(qtyText);
+        } catch (Exception e) {
+            successMessageTextArea.setText("Invalid quantity");
             return;
         }
 
-        if (quantity <= 0) {
-            successMessageTextArea.setText("Quantity must be greater than 0.");
-            successMessageTextArea.setStyle("-fx-text-fill: red;");
+        if (qty <= 0) {
+            successMessageTextArea.setText("Quantity must be > 0");
             return;
         }
 
-        // event-7 & event-8: Check stock
-        int available = stockMap.getOrDefault(selectedType, 0);
-        if (available < quantity) {
-            availableStockTextArea.setText("Available Stock: " + available);
-            successMessageTextArea.setText("Out of Stock! Only " + available + " left.");
-            successMessageTextArea.setStyle("-fx-text-fill: red;");
-            stampTotalPriceTextArea.setText("");
+        int available = stock.get(type);
+
+        if (qty > available) {
+            successMessageTextArea.setText("Out of Stock");
             return;
         }
 
-        // Deduct stock
-        stockMap.put(selectedType, available - quantity);
+        // update stock
+        stock.put(type, available - qty);
 
-        // event-9: Calculate total price
-        int pricePerUnit = StampStock.PRICES.getOrDefault(selectedType, 0);
-        int totalPrice = pricePerUnit * quantity;
+        int price = priceMap.get(type);
+        int total = price * qty;
 
-        // event-10: Save sale & updated stock
-        StampStock.saveStock(stockMap);
-        StampStock.saveSaleRecord(selectedType, quantity, totalPrice);
+        // MODEL OBJECT (IMPORTANT FOR CRA)
+        StampSale sale = new StampSale(type, qty, price, total);
 
-        // event-11: Display result
-        availableStockTextArea.setText("Available Stock: " + (available - quantity));
-        stampTotalPriceTextArea.setText("Total: " + totalPrice + "৳");
+        // SAVE TO CSV
+        saveToCSV(sale);
+
+        // OUTPUT
+        availableStockTextArea.setText("Available Stock: " + (available - qty));
+        stampTotalPriceTextArea.setText("Total: " + total + "৳");
         successMessageTextArea.setText("Sale Successful!");
-        successMessageTextArea.setStyle("-fx-text-fill: green;");
     }
 
-    // Back to Counter Clerk Dashboard
+    // CSV SAVE METHOD
+    private void saveToCSV(StampSale sale) {
+        try {
+            FileWriter fw = new FileWriter("stamp_sales.csv", true);
+            fw.write(sale.toCSV() + "\n");
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // BACK BUTTON
     @javafx.fxml.FXML
-    public void backOnAction(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(
+    public void backOnAction(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("/com/example/postofficesystem/Mahfuz/counterClerkDashboard.fxml")
         );
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(scene);
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(loader.load()));
         stage.show();
     }
 }
