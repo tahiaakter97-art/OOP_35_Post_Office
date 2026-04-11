@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.postofficesystem.Mahfuz.assignedParcelsViewController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="691.0" prefWidth="928.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postofficesystem.Mahfuz.assignedParcelsViewController">
+   <children>
+      <Label layoutX="237.0" layoutY="66.0" prefHeight="94.0" prefWidth="408.0" text="Assigned Parcels View  ">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Button layoutX="108.0" layoutY="184.0" mnemonicParsing="false" onAction="#loadParcelOnAction" prefHeight="26.0" prefWidth="202.0" text="Load Parcels" />
+      <TableView fx:id="assignedParcelsViewTableView" layoutX="57.0" layoutY="237.0" prefHeight="200.0" prefWidth="815.0">
+        <columns>
+          <TableColumn fx:id="trackingIdCol" prefWidth="126.39999389648438" text="Tracking ID" />
+          <TableColumn fx:id="receiverNameCol" prefWidth="183.20001220703125" text="Receiver Name" />
+            <TableColumn fx:id="addressCol" prefWidth="301.5999755859375" text="Address " />
+            <TableColumn fx:id="statusCol" prefWidth="205.5999755859375" text="Status" />
+        </columns>
+      </TableView>
+      <Button layoutX="108.0" layoutY="464.0" mnemonicParsing="false" onAction="#viewDetailsOnAction" prefHeight="26.0" prefWidth="202.0" text="View Details" />
+      <Label fx:id="trackingIdTextArea" layoutX="108.0" layoutY="527.0" prefHeight="18.0" prefWidth="286.0" text="Tracking Id" />
+      <Label fx:id="senderNameTextArea" layoutX="113.0" layoutY="571.0" prefHeight="18.0" prefWidth="286.0" text="Sender Name" />
+      <Label fx:id="receiverNameTextArea" layoutX="109.0" layoutY="615.0" prefHeight="18.0" prefWidth="286.0" text="Receiver Name" />
+      <Label fx:id="addressTextArea" layoutX="541.0" layoutY="536.0" prefHeight="18.0" prefWidth="324.0" text="Address" />
+      <Label fx:id="statusTextArea" layoutX="546.0" layoutY="606.0" prefHeight="18.0" prefWidth="286.0" text="Status" />
+   </children>
 </AnchorPane>
