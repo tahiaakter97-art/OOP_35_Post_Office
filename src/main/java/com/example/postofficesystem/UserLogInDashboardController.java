@@ -133,16 +133,12 @@ public class UserLogInDashboardController {
 
 
             else if (role.equals("Postman") && pass.equals("12345")) {
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("/com/example/postofficesystem/Mahfuz/postmanDashboard.fxml"));
-                Parent root = loader.load();
-
-                stage.setScene(new Scene(root));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/postofficesystem/Mahfuz/postManDashboardView.fxml"));
+                Scene scene = new Scene(loader.load());
+                stage.setScene(scene);
                 stage.setTitle("Postman Dashboard");
 
-               // FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/postofficesystem/Mahfuz/PostmanDashboard.fxml"));
-               // stage.setScene(new Scene(loader.load()));
-               // stage.setTitle("Postman Dashboard");
+
             }
 
             else {

@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class postmanDashboardController {
+public class postManDashboardViewController {
 
     @javafx.fxml.FXML
     public void initialize() {
