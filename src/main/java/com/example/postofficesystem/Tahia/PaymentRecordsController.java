@@ -67,6 +67,41 @@ public class PaymentRecordsController
 
     @javafx.fxml.FXML
     public void searchButtonOA(ActionEvent actionEvent) {
+        ObservableList<Payment> filteredList = FXCollections.observableArrayList();
+
+        String searchId = transactionIdTF.getText().trim();
+        String searchName = customerNameTF.getText().trim();
+        LocalDate fromDate = fromDateDP.getValue();
+        LocalDate toDate = toDateDP.getValue();
+
+        for (Payment payment : paymentList) {
+
+            boolean match = true;
+
+            if (!searchId.isEmpty() &&
+                    !payment.getTransactionId().toLowerCase().contains(searchId.toLowerCase())) {
+                match = false;
+            }
+
+            if (!searchName.isEmpty() &&
+                    !payment.getCustomerName().toLowerCase().contains(searchName.toLowerCase())) {
+                match = false;
+            }
+
+            if (fromDate != null && payment.getDate().isBefore(fromDate)) {
+                match = false;
+            }
+
+            if (toDate != null && payment.getDate().isAfter(toDate)) {
+                match = false;
+            }
+
+            if (match) {
+                filteredList.add(payment);
+            }
+        }
+
+        paymentTableView.setItems(filteredList);
     }
 
     @javafx.fxml.FXML
@@ -90,13 +125,15 @@ public class PaymentRecordsController
     }
 
     private void showPayment(Payment selectedPayment) {
-        paymentTypeCB.setValue(selectedPayment.getPaymentType()); // Set the selected value
-        amountTF.setText(String.valueOf(selectedPayment.getAmount())); // Show amount
-        dateDP.setValue(selectedPayment.getDate()); // Show date
+        paymentTypeCB.setValue(selectedPayment.getPaymentType());
+        amountTF.setText(String.valueOf(selectedPayment.getAmount()));
+        dateDP.setValue(selectedPayment.getDate());
     }
 
     @javafx.fxml.FXML
     public void closeButtonOA(ActionEvent actionEvent) {
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.close();
     }
 
     @javafx.fxml.FXML
