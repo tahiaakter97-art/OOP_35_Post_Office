@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="698.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postofficesystem.Mahfuz.cancelBookingViewController">
    <children>
       <Label layoutX="349.0" layoutY="82.0" text="Cancel Booking">
@@ -20,5 +19,6 @@
       <Button layoutX="157.0" layoutY="521.0" mnemonicParsing="false" onAction="#cacncelBookingOnAction" text="Cancel Booking" />
       <Label fx:id="currentStatusTextArea" layoutX="319.0" layoutY="326.0" prefHeight="71.0" prefWidth="206.0" text="Current Status" />
       <Label fx:id="resultMessageTextArea" layoutX="339.0" layoutY="507.0" prefHeight="53.0" prefWidth="226.0" text="Result Message" />
+      <Button layoutX="807.0" layoutY="631.0" mnemonicParsing="false" onAction="#backOnAction" text="Back" />
    </children>
 </AnchorPane>

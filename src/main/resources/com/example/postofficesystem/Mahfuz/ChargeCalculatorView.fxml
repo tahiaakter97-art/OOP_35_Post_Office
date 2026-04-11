@@ -22,5 +22,6 @@
       <ComboBox fx:id="distanceComboBox" layoutX="224.0" layoutY="245.0" prefHeight="26.0" prefWidth="372.0" />
       <ComboBox fx:id="serviceTypeComboBox" layoutX="230.0" layoutY="314.0" prefHeight="26.0" prefWidth="372.0" />
       <Button layoutX="89.0" layoutY="434.0" mnemonicParsing="false" onAction="#chargeCalculateOnAction" prefHeight="26.0" prefWidth="106.0" text="Calculate" />
+      <Button layoutX="757.0" layoutY="634.0" mnemonicParsing="false" onAction="#backOnAction" text="Back" />
    </children>
 </AnchorPane>

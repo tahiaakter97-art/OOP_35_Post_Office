@@ -83,7 +83,7 @@ public class counterClerkDashboardController {
     @javafx.fxml.FXML
     public void stampSalesOnAction(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(
-                getClass().getResource("/com/example/postofficesystem/Mahfuz/stamsSalesView.fxml")
+                getClass().getResource("/com/example/postofficesystem/Mahfuz/stampsSalesView.fxml")
         );
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();

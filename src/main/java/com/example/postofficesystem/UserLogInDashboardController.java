@@ -141,7 +141,6 @@ public class UserLogInDashboardController {
                 stage.setTitle("Postman Dashboard");
             }
 
-
             else {
                 loginInfo.setText("Invalid role or password!");
             }
