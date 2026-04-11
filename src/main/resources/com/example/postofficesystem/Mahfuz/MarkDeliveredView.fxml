@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="675.0" prefWidth="890.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postofficesystem.Mahfuz.markDeliveredViewController">
    <children>
       <Label layoutX="303.0" layoutY="67.0" text="Mark Delivered">
@@ -22,5 +21,6 @@
       <Label layoutX="176.0" layoutY="272.0" text="Receiver Name" />
       <Button layoutX="206.0" layoutY="368.0" mnemonicParsing="false" onAction="#verifyParcelOnAction" text="Verify Parcel" />
       <Button layoutX="528.0" layoutY="368.0" mnemonicParsing="false" onAction="#markAsDeliveredOnAction" text="Mark As Delivered" />
+      <Button layoutX="800.0" layoutY="624.0" mnemonicParsing="false" onAction="#backOnAction" text="Back" />
    </children>
 </AnchorPane>

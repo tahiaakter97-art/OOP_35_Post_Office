@@ -1,6 +1,5 @@
 package com.example.postofficesystem.Mahfuz;
 
-import com.example.postofficesystem.Mahfuz.model.ParcelTrack;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -23,7 +22,7 @@ public class cancelBookingViewController {
     @javafx.fxml.FXML
     private Label resultMessageTextArea;
 
-    private ParcelTrack selectedParcel;
+    private com.example.postofficesystem.Mahfuz.model.ParcelTrack selectedParcel;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -42,9 +41,9 @@ public class cancelBookingViewController {
             return;
         }
 
-        List<ParcelTrack> list = ParcelTrackFileUtil.loadParcels();
+        List<com.example.postofficesystem.Mahfuz.model.ParcelTrack> list = ParcelTrackFileUtil.loadParcels();
 
-        for (ParcelTrack p : list) {
+        for (com.example.postofficesystem.Mahfuz.model.ParcelTrack p : list) {
 
             if (p.getTrackingId().equals(id)) {
 

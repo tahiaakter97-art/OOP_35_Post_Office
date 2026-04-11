@@ -1,26 +1,64 @@
 package com.example.postofficesystem.Mahfuz;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class rescheduleDeliveryViewController
-{
-    @javafx.fxml.FXML
-    private Label validationMessageTextArea;
-    @javafx.fxml.FXML
-    private Label successMessageTextArea;
-    @javafx.fxml.FXML
-    private TextField trackingIdTextField;
-    @javafx.fxml.FXML
-    private DatePicker newDeliveryDateDatePicker;
+import java.time.LocalDate;
+import java.util.List;
 
-    @javafx.fxml.FXML
+public class rescheduleDeliveryViewController {
+
+    @FXML private TextField trackingIdTextField;
+    @FXML private DatePicker newDeliveryDateDatePicker;
+    @FXML private Label validationMessageTextArea;
+    @FXML private Label successMessageTextArea;
+
+    @FXML
     public void initialize() {
+        validationMessageTextArea.setText("");
+        successMessageTextArea.setText("");
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void rescheduleOnAction(ActionEvent actionEvent) {
+
+        String id = trackingIdTextField.getText().trim();
+        LocalDate newDate = newDeliveryDateDatePicker.getValue();
+
+        // VALIDATION
+        if (id.isEmpty() || newDate == null) {
+            validationMessageTextArea.setText("Fill all fields");
+            successMessageTextArea.setText("");
+            return;
+        }
+
+        if (newDate.isBefore(LocalDate.now())) {
+            validationMessageTextArea.setText("Date cannot be in past");
+            successMessageTextArea.setText("");
+            return;
+        }
+
+        List<com.example.postofficesystem.Mahfuz.model.ParcelTrack> list = ParcelTrackFileUtil.loadParcels();
+
+        for (com.example.postofficesystem.Mahfuz.model.ParcelTrack p : list) {
+
+            if (p.getTrackingId().equals(id)) {
+
+                p.setStatus("Rescheduled");
+                p.setRescheduleDate(newDate.toString());
+
+                ParcelTrackFileUtil.saveAll(list);
+
+                validationMessageTextArea.setText("");
+                successMessageTextArea.setText("Delivery Rescheduled Successfully");
+                return;
+            }
+        }
+
+        validationMessageTextArea.setText("Parcel not found");
+        successMessageTextArea.setText("");
     }
 }
