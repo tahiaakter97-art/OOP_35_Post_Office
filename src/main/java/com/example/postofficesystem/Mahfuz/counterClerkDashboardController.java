@@ -27,42 +27,90 @@ public class counterClerkDashboardController {
 
     @javafx.fxml.FXML
     public void parcelBookingOnAction(ActionEvent actionEvent) throws IOException {
-        switchScene(actionEvent, "ParcelBooking.fxml");
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                getClass().getResource("/com/example/postofficesystem/Mahfuz/parcelBookingView.fxml")
+        );
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @javafx.fxml.FXML
     public void chargeCalculator(ActionEvent actionEvent) throws IOException {
-        switchScene(actionEvent, "chargeCalculator.fxml");
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                getClass().getResource("/com/example/postofficesystem/Mahfuz/chargeCalculatorView.fxml")
+        );
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @javafx.fxml.FXML
     public void cancelBookingOnAction(ActionEvent actionEvent) throws IOException {
-        switchScene(actionEvent, "cancelBooking.fxml");
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                getClass().getResource("/com/example/postofficesystem/Mahfuz/cancelBookingView.fxml")
+        );
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @javafx.fxml.FXML
     public void transactionReportOnAction(ActionEvent actionEvent) throws IOException {
-        switchScene(actionEvent, "transactionReport.fxml");
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                getClass().getResource("/com/example/postofficesystem/Mahfuz/transactionReportView.fxml")
+        );
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @javafx.fxml.FXML
     public void trackParcelOnAction(ActionEvent actionEvent) throws IOException {
-        switchScene(actionEvent, "trackParcel.fxml");
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                getClass().getResource("/com/example/postofficesystem/Mahfuz/trackParcelView.fxml")
+        );
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @javafx.fxml.FXML
     public void stampSalesOnAction(ActionEvent actionEvent) throws IOException {
-        switchScene(actionEvent, "stampSales.fxml");
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                getClass().getResource("/com/example/postofficesystem/Mahfuz/stamsSalesView.fxml")
+        );
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @javafx.fxml.FXML
     public void moneyOrderOnAction(ActionEvent actionEvent) throws IOException {
-        switchScene(actionEvent, "moneyOrder.fxml");
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                getClass().getResource("/com/example/postofficesystem/Mahfuz/moneyOrderView.fxml")
+        );
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @javafx.fxml.FXML
     public void letterRegistrationOnAction(ActionEvent actionEvent) throws IOException {
-        switchScene(actionEvent, "letterRegistration.fxml");
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                getClass().getResource("/com/example/postofficesystem/Mahfuz/letterRegistrationView.fxml")
+        );
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @javafx.fxml.FXML
