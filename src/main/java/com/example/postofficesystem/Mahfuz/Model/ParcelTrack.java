@@ -12,7 +12,7 @@ public class ParcelTrack {
     private String rescheduleDate;
     private int attemptCount;
 
-    // ✅ NEW (for Collect Signature feature)
+    //  NEW (for Collect Signature feature)
     private String receiverSignature;
 
     public ParcelTrack() {
@@ -36,7 +36,7 @@ public class ParcelTrack {
         this.receiverSignature = "";
     }
 
-    // ================= GETTERS & SETTERS =================
+    // GETTERS & SETTERS
 
     public String getTrackingId() {
         return trackingId;
@@ -102,7 +102,7 @@ public class ParcelTrack {
         this.attemptCount = attemptCount;
     }
 
-    // ✅ NEW: Signature
+    //  NEW: Signature
     public String getReceiverSignature() {
         return receiverSignature;
     }

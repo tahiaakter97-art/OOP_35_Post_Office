@@ -1,73 +1,45 @@
 package com.example.postofficesystem.Mahfuz;
 
+import com.example.postofficesystem.Mahfuz.model.ParcelTrack;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ParcelTrackFileUtil {
 
-    private static final String FILE_NAME = "parcels.txt";
+    private static final String FILE_NAME = "parcels.dat";
 
-    // LOAD DATA FROM FILE
-    public static List<com.example.postofficesystem.Mahfuz.model.ParcelTrack> loadParcels() {
+    // ================= SAVE (BINARY WRITE) =================
+    public static void saveAll(List<ParcelTrack> list) {
 
-        List<com.example.postofficesystem.Mahfuz.model.ParcelTrack> list = new ArrayList<>();
+        try (ObjectOutputStream oos =
+                     new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
 
-        try (BufferedReader br = new BufferedReader(new FileReader(FILE_NAME))) {
-
-            String line;
-
-            while ((line = br.readLine()) != null) {
-
-                String[] data = line.split(",");
-
-                // minimum required fields
-                if (data.length >= 5) {
-
-                    com.example.postofficesystem.Mahfuz.model.ParcelTrack p = new com.example.postofficesystem.Mahfuz.model.ParcelTrack(
-                            data[0], // trackingId
-                            data[1], // senderName
-                            data[2], // receiverName
-                            data[3], // address
-                            data[4]  // status
-                    );
-
-                    // optional fields (safe handling)
-                    if (data.length > 5) {
-                        p.setFailureReason(data[5]);
-                    } else {
-                        p.setFailureReason("");
-                    }
-
-                    if (data.length > 6) {
-                        p.setRescheduleDate(data[6]);
-                    } else {
-                        p.setRescheduleDate("");
-                    }
-
-                    list.add(p);
-                }
-            }
+            oos.writeObject(list);
 
         } catch (Exception e) {
-            System.out.println("File read error: " + e.getMessage());
+            System.out.println("Save error: " + e.getMessage());
         }
-
-        return list;
     }
 
-    // SAVE ALL DATA BACK TO FILE
-    public static void saveAll(List<com.example.postofficesystem.Mahfuz.model.ParcelTrack> list) {
+    // ================= LOAD (BINARY READ) =================
+    public static List<ParcelTrack> loadParcels() {
 
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_NAME))) {
+        File file = new File(FILE_NAME);
 
-            for (com.example.postofficesystem.Mahfuz.model.ParcelTrack p : list) {
-                bw.write(p.toFileString());
-                bw.newLine();
-            }
+        if (!file.exists()) {
+            return new ArrayList<>();
+        }
+
+        try (ObjectInputStream ois =
+                     new ObjectInputStream(new FileInputStream(FILE_NAME))) {
+
+            return (List<ParcelTrack>) ois.readObject();
 
         } catch (Exception e) {
-            System.out.println("File write error: " + e.getMessage());
+            System.out.println("Load error: " + e.getMessage());
+            return new ArrayList<>();
         }
     }
 }

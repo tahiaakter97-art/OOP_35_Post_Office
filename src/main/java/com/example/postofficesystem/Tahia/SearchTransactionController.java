@@ -1,5 +1,6 @@
 package com.example.postofficesystem.Tahia;
 
+import com.example.postofficesystem.Transaction;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
