@@ -128,7 +128,7 @@ public class UserLogInDashboardController {
 
             else if (role.equals("Counter Clerk") && pass.equals("12345")) {
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("com.example.postofficesystem.Mahfuz.counterClerkDashboard.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/postofficesystem/Mahfuz/counterClerkDashboard.fxml"));
                 stage.setScene(new Scene(loader.load()));
                 stage.setTitle("Counter Clerk Dashboard");
             }
@@ -136,7 +136,7 @@ public class UserLogInDashboardController {
 
             else if (role.equals("Postman") && pass.equals("12345")) {
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("com.example.postofficesystem.Mahfuz.postmanDashboard.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/postofficesystem/Mahfuz/postmanDashboard.fxml"));
                 stage.setScene(new Scene(loader.load()));
                 stage.setTitle("Postman Dashboard");
             }

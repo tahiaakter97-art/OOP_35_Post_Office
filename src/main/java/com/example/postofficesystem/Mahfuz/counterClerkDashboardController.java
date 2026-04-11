@@ -1,46 +1,78 @@
 package com.example.postofficesystem.Mahfuz;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-public class counterClerkDashboardController
-{
+import java.io.IOException;
+
+public class counterClerkDashboardController {
+
     @javafx.fxml.FXML
     public void initialize() {
     }
 
-    @javafx.fxml.FXML
-    public void logOutOnAction(ActionEvent actionEvent) {
+    // Helper method — বারবার একই code লিখতে হবে না
+    private void switchScene(ActionEvent actionEvent, String fxmlFile) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                getClass().getResource("/com/example/postofficesystem/Mahfuz/" + fxmlFile)
+        );
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @javafx.fxml.FXML
-    public void chargeCalculator(ActionEvent actionEvent) {
+    public void parcelBookingOnAction(ActionEvent actionEvent) throws IOException {
+        switchScene(actionEvent, "ParcelBooking.fxml");
     }
 
     @javafx.fxml.FXML
-    public void parcelBookingOnAction(ActionEvent actionEvent) {
+    public void chargeCalculator(ActionEvent actionEvent) throws IOException {
+        switchScene(actionEvent, "chargeCalculator.fxml");
     }
 
     @javafx.fxml.FXML
-    public void cancelBookingOnAction(ActionEvent actionEvent) {
+    public void cancelBookingOnAction(ActionEvent actionEvent) throws IOException {
+        switchScene(actionEvent, "cancelBooking.fxml");
     }
 
     @javafx.fxml.FXML
-    public void transactionReportOnAction(ActionEvent actionEvent) {
+    public void transactionReportOnAction(ActionEvent actionEvent) throws IOException {
+        switchScene(actionEvent, "transactionReport.fxml");
     }
 
     @javafx.fxml.FXML
-    public void trackParcelOnAction(ActionEvent actionEvent) {
+    public void trackParcelOnAction(ActionEvent actionEvent) throws IOException {
+        switchScene(actionEvent, "trackParcel.fxml");
     }
 
     @javafx.fxml.FXML
-    public void stampSalesOnAction(ActionEvent actionEvent) {
+    public void stampSalesOnAction(ActionEvent actionEvent) throws IOException {
+        switchScene(actionEvent, "stampSales.fxml");
     }
 
     @javafx.fxml.FXML
-    public void moneyOrderOnAction(ActionEvent actionEvent) {
+    public void moneyOrderOnAction(ActionEvent actionEvent) throws IOException {
+        switchScene(actionEvent, "moneyOrder.fxml");
     }
 
     @javafx.fxml.FXML
-    public void letterRegistrationOnAction(ActionEvent actionEvent) {
+    public void letterRegistrationOnAction(ActionEvent actionEvent) throws IOException {
+        switchScene(actionEvent, "letterRegistration.fxml");
+    }
+
+    @javafx.fxml.FXML
+    public void logOutOnAction(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                getClass().getResource("/com/example/postofficesystem/UserLogInDashboard.fxml")
+        );
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 }
