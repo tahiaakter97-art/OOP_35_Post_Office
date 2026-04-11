@@ -37,7 +37,7 @@ public class UserLogInDashboardController {
     @FXML
     private Label createInfo;
 
-    // Initialize
+
     @FXML
     public void initialize() {
         userComboBox.getItems().addAll(
@@ -50,13 +50,13 @@ public class UserLogInDashboardController {
         showPasswordField.setVisible(false);
     }
 
-    // Forget Password
+
     @FXML
     public void forgetPassword(ActionEvent actionEvent) {
         loginInfo.setText("Please contact admin to reset password.");
     }
 
-    // Show / Hide Password
+
     @FXML
     public void showPassword(ActionEvent actionEvent) {
         if (showPass.isSelected()) {
@@ -70,7 +70,7 @@ public class UserLogInDashboardController {
         }
     }
 
-    // Create Account
+
     @FXML
     public void createAccount(ActionEvent actionEvent) {
 
@@ -91,7 +91,6 @@ public class UserLogInDashboardController {
         createInfo.setText("Account created successfully!");
     }
 
-    // Login + Scene Switch
     @FXML
     public void Login(ActionEvent actionEvent) {
 
@@ -106,20 +105,19 @@ public class UserLogInDashboardController {
         try {
             Stage stage = (Stage) loginInfo.getScene().getWindow();
 
-            // CUSTOMER
+
             if (role.equals("Accounts Officer") && pass.equals("12345")) {
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("AccountsDashboard.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/postofficesystem/Tahia/AccountsDashboard.fxml"));
                 Scene scene = new Scene(loader.load());
 
                 stage.setTitle("Accounts Officer Dashboard");
                 stage.setScene(scene);
             }
 
-            // CUSTOMER SERVICE ADVISOR
             else if (role.equals("Post Master") && pass.equals("12345")) {
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("postmasterDashboard.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/postofficesystem/Tahia/postmasterDashboard.fxml"));
                 Scene scene = new Scene(loader.load());
 
                 stage.setTitle("Post Master Dashboard");

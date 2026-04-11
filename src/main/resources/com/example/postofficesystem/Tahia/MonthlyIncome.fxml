@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postofficesystem.Tahia.MonthlyIncomeController">
+   <children>
+      <Label layoutX="136.0" layoutY="14.0" text="Monthly Income Report">
+         <font>
+            <Font name="System Bold Italic" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="83.0" text="Select Month:" />
+      <Label layoutX="44.0" layoutY="121.0" text="Total Monthly Income:" />
+      <Label layoutX="44.0" layoutY="158.0" text="Service-wise Income:" />
+      <Label fx:id="totalIncomeLabel" layoutX="176.0" layoutY="121.0" prefHeight="25.0" prefWidth="81.0" />
+      <Label layoutX="306.0" layoutY="83.0" text="Select Year:" />
+      <Button layoutX="412.0" layoutY="129.0" mnemonicParsing="false" onAction="#generateReportButtonOA" prefHeight="25.0" prefWidth="119.0" text="Generate Button" />
+      <Button layoutX="507.0" layoutY="329.0" mnemonicParsing="false" onAction="#backButtonOA" text="Back" />
+      <ComboBox fx:id="monthCB" layoutX="122.0" layoutY="79.0" prefHeight="25.0" prefWidth="136.0" />
+      <ComboBox fx:id="yearCB" layoutX="370.0" layoutY="79.0" prefHeight="25.0" prefWidth="119.0" />
+      <TableView fx:id="serviceIncomeTableView" layoutX="45.0" layoutY="175.0" prefHeight="181.0" prefWidth="344.0">
+        <columns>
+          <TableColumn fx:id="serviceNameTC" prefWidth="107.0" text="Service Name" />
+          <TableColumn fx:id="amountTC" prefWidth="116.0" text="Income Amount" />
+            <TableColumn fx:id="transactionCountTC" prefWidth="120.0" text="Transaction Count" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

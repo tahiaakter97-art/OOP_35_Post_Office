@@ -7,6 +7,8 @@ module com.example.postofficesystem {
     exports com.example.postofficesystem;
 
     opens com.example.postofficesystem.Mahfuz to javafx.fxml;
-    exports com.example.postofficesystem.Mahfuz;  
+    exports com.example.postofficesystem.Mahfuz;
 
+    opens com.example.postofficesystem.Tahia to javafx.fxml;
+    exports com.example.postofficesystem.Tahia;
 }
