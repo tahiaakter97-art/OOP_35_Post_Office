@@ -10,9 +10,10 @@ public class ParcelTrack {
 
     private String failureReason;
     private String rescheduleDate;
-
-    // ✅ NEW FIELD (IMPORTANT FOR RETURN LOGIC)
     private int attemptCount;
+
+    // ✅ NEW (for Collect Signature feature)
+    private String receiverSignature;
 
     public ParcelTrack() {
     }
@@ -22,14 +23,17 @@ public class ParcelTrack {
                        String receiverName,
                        String receiverAddress,
                        String status) {
+
         this.trackingId = trackingId;
         this.senderName = senderName;
         this.receiverName = receiverName;
         this.receiverAddress = receiverAddress;
         this.status = status;
 
-        // default attempt
+        this.failureReason = "";
+        this.rescheduleDate = "";
         this.attemptCount = 0;
+        this.receiverSignature = "";
     }
 
     // ================= GETTERS & SETTERS =================
@@ -90,13 +94,21 @@ public class ParcelTrack {
         this.rescheduleDate = rescheduleDate;
     }
 
-    // ✅ NEW: attempt count getter/setter
     public int getAttemptCount() {
         return attemptCount;
     }
 
     public void setAttemptCount(int attemptCount) {
         this.attemptCount = attemptCount;
+    }
+
+    // ✅ NEW: Signature
+    public String getReceiverSignature() {
+        return receiverSignature;
+    }
+
+    public void setReceiverSignature(String receiverSignature) {
+        this.receiverSignature = receiverSignature;
     }
 
     // ================= FILE FORMAT =================
@@ -106,8 +118,9 @@ public class ParcelTrack {
                 receiverName + "," +
                 receiverAddress + "," +
                 status + "," +
-                (failureReason == null ? "" : failureReason) + "," +
-                (rescheduleDate == null ? "" : rescheduleDate) + "," +
-                attemptCount;
+                failureReason + "," +
+                rescheduleDate + "," +
+                attemptCount + "," +
+                receiverSignature;
     }
 }

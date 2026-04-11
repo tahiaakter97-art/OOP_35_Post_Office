@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="681.0" prefWidth="878.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postofficesystem.Mahfuz.dailyDeliveryReportViewController">
    <children>
       <Label layoutX="243.0" layoutY="55.0" text="Daily Delivery Report ">
@@ -30,5 +29,6 @@
       <Label fx:id="deliveredCountTextArea" layoutX="32.0" layoutY="533.0" prefHeight="54.0" prefWidth="238.0" text="Delivered Count" />
       <Label fx:id="failedCountTextArea" layoutX="292.0" layoutY="533.0" prefHeight="54.0" prefWidth="286.0" text="Failed Count" />
       <Label fx:id="returnedCountTextArea" layoutX="613.0" layoutY="523.0" prefHeight="94.0" prefWidth="246.0" text="Returned Count" />
+      <Button layoutX="805.0" layoutY="642.0" mnemonicParsing="false" onAction="#backOnAction" text="Back" />
    </children>
 </AnchorPane>
