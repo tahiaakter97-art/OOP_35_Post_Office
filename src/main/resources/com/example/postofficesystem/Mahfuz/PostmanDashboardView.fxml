@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="664.0" prefWidth="945.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postofficesystem.Mahfuz.postmanDashboardController">
+   <children>
+      <Label layoutX="318.0" layoutY="71.0" text="Postman Dashboard">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Line endX="-100.0" endY="447.60003662109375" layoutX="590.0" layoutY="150.0" startX="-100.0" />
+      <Button layoutX="172.0" layoutY="196.0" mnemonicParsing="false" onAction="#markDeliveredOnAction" prefHeight="54.0" prefWidth="202.0" text="Mark Delivered" />
+      <Button layoutX="841.0" layoutY="600.0" mnemonicParsing="false" onAction="#logOutOnAction" prefHeight="34.0" prefWidth="72.0" text="Log Out" />
+      <Button layoutX="588.0" layoutY="522.0" mnemonicParsing="false" onAction="#viewAssignedParcelsOnAction" prefHeight="54.0" prefWidth="202.0" text="View Assigned Parcels " />
+      <Button layoutX="588.0" layoutY="420.0" mnemonicParsing="false" onAction="#deliveryReportOnAction" prefHeight="54.0" prefWidth="202.0" text="Delivery Report" />
+      <Button layoutX="588.0" layoutY="305.0" mnemonicParsing="false" onAction="#collectSignatureOnAction" prefHeight="54.0" prefWidth="202.0" text="Collect Signature" />
+      <Button layoutX="588.0" layoutY="196.0" mnemonicParsing="false" onAction="#reportDamagedParcelOnAction" prefHeight="54.0" prefWidth="202.0" text="Report Damaged Parcel " />
+      <Button layoutX="172.0" layoutY="522.0" mnemonicParsing="false" onAction="#returnParcelOnAction" prefHeight="54.0" prefWidth="202.0" text="Return Parcel" />
+      <Button layoutX="172.0" layoutY="420.0" mnemonicParsing="false" onAction="#rescheduleDeliveryOnAction" prefHeight="54.0" prefWidth="202.0" text="Reschedule Delivery" />
+      <Button layoutX="172.0" layoutY="305.0" mnemonicParsing="false" onAction="#deliveryFailedOnAction" prefHeight="54.0" prefWidth="202.0" text="Delivery Failed" />
+   </children>
+</AnchorPane>
