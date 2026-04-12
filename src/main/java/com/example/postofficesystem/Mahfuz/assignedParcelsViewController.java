@@ -81,13 +81,15 @@ public class assignedParcelsViewController {
     public void backOnAction(ActionEvent actionEvent) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/com/example/postofficesystem/Mahfuz/postmanDashboard.fxml")
+                getClass().getResource("/com/example/postofficesystem/Mahfuz/postManDashboardView.fxml")
         );
 
         Scene scene = new Scene(loader.load());
 
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) actionEvent.getSource())
+                .getScene()
+                .getWindow();
+
         stage.setScene(scene);
-        stage.show();
     }
 }

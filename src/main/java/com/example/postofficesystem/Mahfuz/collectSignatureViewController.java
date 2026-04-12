@@ -68,9 +68,9 @@ public class collectSignatureViewController {
 
     @FXML
     public void backButtonOA(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/com/example/postofficesystem/Mahfuz/postManDashboardView.fxml")
-        );
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(
+                "/com/example/postofficesystem/Mahfuz/postManDashboardView.fxml"
+        ));
 
         Scene scene = new Scene(loader.load());
 
