@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="659.0" prefWidth="938.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postofficesystem.Mahfuz.collectSignatureViewController">
    <children>
       <Label layoutX="281.0" layoutY="55.0" text="Collect Signature">
@@ -19,5 +18,6 @@
       <Button layoutX="330.0" layoutY="262.0" mnemonicParsing="false" onAction="#saveSignatureOnAction" prefHeight="26.0" prefWidth="218.0" text="Save Signature" />
       <Label fx:id="validationMessageTextArea" layoutX="148.0" layoutY="376.0" prefHeight="78.0" prefWidth="290.0" text="Validation Message" />
       <Label fx:id="successMessageTextArea" layoutX="624.0" layoutY="376.0" prefHeight="77.0" prefWidth="240.0" text="Success Message" />
+      <Button layoutX="744.0" layoutY="551.0" mnemonicParsing="false" onAction="#backButtonOA" text="Back" />
    </children>
 </AnchorPane>

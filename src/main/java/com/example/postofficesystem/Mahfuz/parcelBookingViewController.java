@@ -151,7 +151,7 @@ public class parcelBookingViewController {
     public void backOnAction(ActionEvent actionEvent) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader(
-                getClass().getResource("CounterClerkDashboard.fxml")
+                getClass().getResource("/com/example/postofficesystem/Mahfuz/CounterClerkDashboard.fxml")
         );
 
         Scene scene = new Scene(fxmlLoader.load());

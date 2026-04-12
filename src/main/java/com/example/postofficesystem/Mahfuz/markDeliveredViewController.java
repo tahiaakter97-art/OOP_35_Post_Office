@@ -97,7 +97,7 @@ public class markDeliveredViewController {
     public void backOnAction(ActionEvent actionEvent) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/com/example/postofficesystem/Mahfuz/postmanDashboard.fxml")
+                getClass().getResource("/com/example/postofficesystem/Mahfuz/postManDashboardView.fxml")
         );
 
         Scene scene = new Scene(loader.load());
